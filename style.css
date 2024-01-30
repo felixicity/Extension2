@@ -1,0 +1,595 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  transition: background 0.5s;
+  font-size: 16px;
+  min-width: 28rem;
+  min-height: 100dvh;
+}
+
+.container,
+.all-notes,
+.save-text,
+.create-idea,
+.create-todo,
+.settings,
+.login,
+.todo {
+  width: min(calc(100% - 4rem), 75ch);
+  /* height: 100%; */
+  min-height: 100dvh;
+  /* overflow-y: auto; */
+  margin-inline: auto;
+  margin-bottom: 5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0px 3px 3px #e0e0e0;
+}
+
+header .logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.head_text {
+  margin-top: 1.5rem;
+}
+
+.head_text h1 {
+  font-size: 2.8rem;
+  text-wrap: balance;
+  color: rgb(112, 2, 112);
+  margin-bottom: 0.7rem;
+}
+
+.head_text p {
+  font-size: 1.1rem;
+  -moz-text-wrap: pretty;
+  text-wrap: pretty;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif'; */
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  /* background: #eeefe6; */
+  background: rgba(112, 2, 112, 0.08);
+  width: 100%;
+  z-index: 999999;
+}
+
+nav ul {
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+  list-style-type: none;
+  /* height: 5rem; */
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 0.8rem;
+  font-weight: bold;
+  /* color: #1d1d1d; */
+  padding: 0.5rem 0 1rem 0;
+  cursor: pointer;
+}
+
+nav ul li.active img {
+  background: rgba(112, 2, 112, 0.2);
+}
+
+nav ul li:not(.todo_tab) img {
+  padding: 0.45rem 1.5rem;
+  border-radius: 25px;
+  transition: background 0.25s;
+}
+
+nav ul li.notes_tab img {
+  padding: 0.63rem 1.7rem;
+  border-radius: 25px;
+  transition: background 0.25s;
+  margin-bottom: 0.1rem;
+}
+
+nav ul li.todo_tab img {
+  padding: 0.3rem 1.28rem;
+  border-radius: 25px;
+  transition: background 0.25s;
+  margin-bottom: 0.1rem;
+}
+
+nav ul li img:hover {
+  background: rgba(112, 2, 112, 0.2);
+}
+
+.ctas {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+}
+
+.ctas .cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.45rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  background: rgba(112, 2, 112, 0.2);
+  transition: color 0.2s, background 0.2s;
+}
+
+.ctas .cta:hover {
+  background: rgb(63, 0, 63);
+  color: #fff;
+}
+
+.setting {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.setting:hover {
+  animation: rotate 2.5s;
+}
+
+.all-notes,
+.save-text,
+.create-idea,
+.create-todo,
+.settings,
+.container,
+.todo {
+  display: none;
+}
+
+.title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 2rem 0;
+  text-wrap: balance;
+}
+
+.todo .title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  text-align: start;
+  margin: 2rem 0;
+  text-wrap: balance;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  border-radius: 25px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #141414;
+  border: 1px solid #cdcdcd;
+  margin: 2rem 0;
+}
+
+textarea {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+  border: 1px solid black;
+  outline: none;
+}
+
+button {
+  padding: 0.6rem 2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button.save {
+  background: rgb(63, 0, 63);
+  color: white;
+  border: none;
+}
+
+button.cancel {
+  border: 1px solid rgb(63, 0, 63);
+  color: rgb(63, 0, 63);
+  background: transparent;
+}
+
+.all-notes {
+  overflow-y: auto;
+  margin-bottom: 6rem;
+}
+
+.new-note {
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 20px 20px 39px #bfbfbf, -20px -20px 39px #ffffff;
+  width: 70px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  bottom: 8rem;
+  right: 3rem;
+  gap: 1rem;
+  z-index: 999999;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  & #create_idea_icon,
+  & #create_text_icon {
+    display: none;
+  }
+}
+
+.new-note.active {
+  padding: 1rem 0;
+
+  & #create_idea_icon,
+  & #create_text_icon {
+    display: block;
+  }
+}
+
+.note {
+  background: rgba(112, 2, 112, 0.07);
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin: 1rem 0;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+
+  & .calendar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  & .time {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+}
+
+.card-tag {
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  background: rgb(16, 171, 11, 0.3);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  color: #444444;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-details {
+  text-wrap: pretty;
+  margin-bottom: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* .note.active .actions {
+  display: flex;
+} */
+
+.actions img:hover {
+  cursor: pointer;
+}
+
+.settings .instruction {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 55%;
+}
+
+.settings .instruction p {
+  font-weight: 600;
+}
+
+.settings .instruction #further-instruction {
+  font-size: 0.9rem;
+}
+
+.settings .instruction #further-instruction:is(.clear) {
+  color: red;
+}
+
+.clear-memory button {
+  background: rgb(112, 2, 112);
+  border: none;
+  color: white;
+  transition: background 0.5s;
+}
+
+.clear-memory button:hover {
+  background: rgb(63, 0, 63);
+}
+
+.settings .controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+.settings .controls .theme,
+.settings .controls .font,
+.settings .controls .clear-memory {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings .controls .theme input[type="checkbox"] {
+  -webkit-appearance: none;
+  width: 75px;
+  height: 35px;
+  border-radius: 20px;
+  background: rgb(63, 0, 63);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.settings .controls .theme input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  left: 10%;
+  top: 13%;
+  transition: left 0.5s;
+}
+
+.settings .controls .theme input[type="checkbox"]:checked {
+  background: #cdcdcd;
+}
+
+.settings .controls .theme input[type="checkbox"]:checked::after {
+  left: 60%;
+}
+
+.settings .controls .theme input[type="checkbox"]:focus,
+.settings .controls .font input[type="range"]:focus {
+  border: none;
+}
+
+.settings .controls .font input[type="range"] {
+  background: none;
+}
+
+.settings .controls .font input[type="range"]::-webkit-slider-runnable-track,
+.settings .controls .font input[type="range"]::-moz-range-track {
+  background: rgb(95, 1, 95);
+  height: 0.3rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.settings .controls .font input[type="range"]::-webkit-slider-thumb,
+.settings .controls .font input[type="range"]::-moz-range-thumb {
+  background: rgba(112, 2, 112);
+  width: 13px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  /* color:un */
+}
+
+.font-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+  font-size: 16px;
+}
+
+#rocket {
+  position: absolute;
+  margin-right: 5rem;
+  animation: launch 10s infinite;
+}
+
+#login-message {
+  text-align: center;
+  margin: 1rem;
+}
+
+.todo_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.todo_header button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  background-color: rgb(112, 2, 112);
+  color: white;
+  border: none;
+}
+
+.todo_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.todo_card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: rgb(95, 1, 95, 0.8);
+  color: white;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  position: relative;
+}
+
+.todo_card input[type="checkbox"],
+.todo_card img.todo_options {
+  cursor: pointer;
+}
+
+/* .todo_card img.todo_options::after {
+  content: "";
+  position: absolute;
+  width: 5rem;
+  inset: 0;
+} */
+.todo_card input[type="checkbox"] {
+  margin: 0 0.5rem;
+  /* accent-color: rgb(112, 2, 112); */
+  accent-color: white;
+}
+
+.todo_card .todo_title {
+  width: 40%;
+  -moz-text-wrap: nowrap;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.todo_details {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  /* font-weight: bold; */
+}
+
+.todo_header button:hover {
+  background-color: rgb(63, 0, 63);
+}
+
+.todo_details .todo_status,
+.todo_details .todo_duedate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.todo_details .todo_status .status_title,
+.todo_details .todo_duedate .duedate_header span.status_title {
+  font-weight: bold;
+}
+.todo_details .todo_duedate .duedate_header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.todo_card_options {
+  position: absolute;
+  right: 0rem;
+  top: 3rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.96);
+  /* padding: 1rem; */
+  display: none;
+  flex-direction: column;
+  width: 8rem;
+  transition: all 0.2s;
+  border-radius: 5px;
+  /* gap: 1rem; */
+}
+
+.todo_card_options.active:has(.card_option) {
+  display: flex;
+}
+
+.todo_card_options .card_option {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.todo_card_options .card_option:hover {
+  background: #323232;
+}
+
+@keyframes launch {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  10% {
+    transform: translate(30%, -30%);
+  }
+  30% {
+    transform: translate(0%, -0%);
+  }
+  50% {
+    transform: translate(30%, -50%);
+  }
+  70% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: translate(1500%, -500%);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

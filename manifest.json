@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "version": "2",
+  "name": "Highlighter",
+  "action": {
+    "default_popup": "index.html"
+  }
+}

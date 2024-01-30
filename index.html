@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Highlighter</title>
+  </head>
+  <body>
+    <div id="page">
+      <header class="header" style="display: none">
+        <p class="logo">Highlighter</p>
+        <p>Welcome, Felix 👏</p>
+        <p class="setting">
+          <img src="./assets/Setting.svg" alt="setting icon" class="icon" />
+        </p>
+      </header>
+      <div class="container">
+        <main class="head_text">
+          <h1>
+            Unleash Your Creativity: Save the Magic <span id="rocket">🚀</span>
+          </h1>
+          <p>
+            capture your thoughts, and let your ideas flourish. Whether it's
+            jotting down moments of inspiration or crafting the next
+            masterpiece, this is your canvas.
+          </p>
+        </main>
+        <div class="ctas">
+          <p class="cta think">
+            <img src="./assets/Idea.svg" alt="idea icon" class="icon" />
+            <span class="idea">Your Ideas, Your Words, Securely Saved</span>
+          </p>
+          <p class="cta write">
+            <img src="./assets/edit.svg" alt="new note icon" class="icon" />
+            <span class="note-link">Write It Down, Save It Up</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- All Notes Page -->
+      <div class="all-notes">
+        <p class="title">Here are your notes</p>
+        <div class="notes"></div>
+        <div class="new-note">
+          <img
+            src="./assets/Idea.svg"
+            width="30px"
+            id="create_idea_icon"
+            title="save new idea"
+            alt="save idea icon"
+          />
+          <img
+            src="./assets/message.svg"
+            width="30px"
+            id="create_text_icon"
+            title="save new text"
+            alt="save text icon"
+          />
+          <img
+            src="./assets/plus.svg"
+            width="40px"
+            id="plus"
+            title="add new options"
+            alt="plus"
+          />
+        </div>
+      </div>
+
+      <!-- Idea Page -->
+      <div class="create-idea">
+        <p class="title">Ideas Rule The World</p>
+        <div>
+          <input
+            type="text"
+            name="idea-title"
+            id="idea-title"
+            placeholder="Idea topic"
+          />
+          <textarea
+            name="idea-detail"
+            id="idea-detail"
+            cols="30"
+            rows="10"
+            placeholder="full detail ..."
+          ></textarea>
+          <button class="save" id="save-idea">Save</button>
+          <button class="cancel" id="cancel-idea">Cancel</button>
+        </div>
+      </div>
+
+      <!-- // Save Text Page -->
+      <div class="save-text">
+        <p class="title">Save the text, Passwords and More</p>
+        <input type="text" id="text-title" placeholder="title" />
+        <textarea name="" id="text-detail" placeholder="full detail"></textarea>
+        <button class="save" id="save-text">Save</button>
+        <button class="cancel" id="cancel-text">Cancel</button>
+      </div>
+
+      <div class="create-todo">
+        <p class="title">Know Your Priorities Now</p>
+        <div>
+          <input
+            type="text"
+            name="todo-title"
+            id="todo-title"
+            placeholder="todo topic"
+          />
+          <button class="save" id="save-todo">Save</button>
+          <button class="cancel" id="cancel-todo">Cancel</button>
+        </div>
+      </div>
+      <!-- Settings Page -->
+      <div class="settings">
+        <p class="title">Settings</p>
+        <div class="controls">
+          <div class="theme">
+            <div class="instruction">
+              <p>Change your theme</p>
+              <span id="further-instruction"
+                >Change your app theme between dark and light</span
+              >
+            </div>
+            <input type="checkbox" id="change-theme" />
+          </div>
+          <div class="font">
+            <div class="instruction">
+              <p>Increase or Decrease Font-Size</p>
+              <span id="further-instruction"
+                >Change font-size depending on your preference</span
+              >
+            </div>
+            <div class="font-board">
+              <span id="%size"></span>
+              <input type="range" name="font-size" id="font-size" />
+            </div>
+          </div>
+          <div class="clear-memory">
+            <div class="instruction">
+              <p>Clear All Notes</p>
+              <span id="further-instruction" class="clear"
+                >You'll lose all your notes. This action cannot be undone</span
+              >
+            </div>
+            <button class="clear_all_notes">Clear Notes</button>
+          </div>
+          <div class="clear-memory">
+            <div class="instruction">
+              <p>Clear All Todos</p>
+              <span id="further-instruction" class="clear"
+                >You'll lose all your todos. This action cannot be undone</span
+              >
+            </div>
+            <button class="clear_all_todos">Clear Todos</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- To-do's Page -->
+      <div class="todo">
+        <div class="todo_header">
+          <p class="title">To-do List</p>
+          <button>Create New</button>
+        </div>
+        <div class="todo_list">
+          <div class="todo_card_options">
+            <div class="card_option">
+              <img src="./assets/edit.svg" alt="" title="edit todo" />
+              <span class="text">Edit</span>
+            </div>
+            <div class="card_option">
+              <img src="./assets/delete.svg" alt="" title="delete-todo" />
+              <span class="text">Delete</span>
+            </div>
+            <div class="card_option">
+              <img src="./assets/Activity.svg" alt="" title="todo-info" />
+              <span class="text">Details</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- navigation -->
+      <nav class="navigation" style="display: none">
+        <ul>
+          <li class="home_tab">
+            <img src="./assets/Home.svg" alt="home icon" /><span>Home</span>
+          </li>
+          <li class="notes_tab">
+            <img src="./assets/attachment.svg" alt="attachment icon" /><span
+              >Notes</span
+            >
+          </li>
+          <li class="todo_tab">
+            <img src="./assets/tick.svg" alt="to-do icon" /><span>To-do's</span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="login">
+      <p class="title">Login</p>
+      <div class="login-form">
+        <p id="login-message"></p>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            autofocus
+          />
+        </div>
+        <div class="form-field">
+          <label for="password">Password 🔐</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="password"
+          />
+        </div>
+        <button type="submit" id="submit-form-btn">Submit</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
